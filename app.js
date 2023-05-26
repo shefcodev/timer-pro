@@ -23,17 +23,25 @@ class Timer {
 
     pause = () => {
         clearInterval(this.timerID);
-    }
+    } 
 
     tick = () => {
-        console.log("tick");
+        if (this.timeRemaining <= 0) {
+            this.pause();
+        } else {
+            this.timeRemaining = this.timeRemaining - 1;
+            console.log(this.timeRemaining);
+        }
+    }
+
+    get timeRemaining() {
+        return parseFloat(this.durationInput.value);
+    }
+
+    set timeRemaining(time) {
+        this.durationInput.value = time;
     }
 }
 
 const timer = new Timer(durationInput, startButton, pauseButton);  
-
-
-// this is another program!;
-
-
 
