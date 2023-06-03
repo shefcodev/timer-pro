@@ -2,21 +2,31 @@
 <html>
     <head>
         <title>Timer App</title>
-        <meta charset = "UTF-8"/>
-        <meta name = "description" content = "Timer App"/>
-        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
-        <meta name = "keywords" content = "Timer App"/>
-        <meta name = "author" content = "Sherif Jimoh"/>
+        <meta charset = "UTF-8" /> 
+        <meta name = "description" content = "Timer App" />
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0" />
+        <meta name = "keywords" content = "Timer App" />
+        <meta name = "author" content = "Sherif Jimoh" />
         <link rel = "stylesheet" type = "text/css" href = "style.css">
     </head>
     <body>
         <svg height = "200" width = "200">
-            <circle r = "20" cx = "30" cy = "30" fill = "red"/>
+            <circle 
+                r = "90" 
+                cx = "100" 
+                cy = "100" 
+                fill = "transparent"
+                stroke = "blue"
+                stroke-width = "10"
+                stroke-dasharray = "565"
+                stroke-dashoffset = "-50"
+                transform = "rotate(-90 100 100)"
+            />
         </svg>
-        <input type = "text" id = "duration" value = "30"/>
+        <input type = "text" id = "duration" value = "30" />
         <button id = "start">Start</button> 
         <button id = "pause">Pause</button>
         <script type = "text/javascript" cherset = "UTF-8" src = "timer.js"></script>
         <script type = "text/javascript" cherset = "UTF-8" src = "app.js"></script>
     </body>
-</html>
+</html> 
