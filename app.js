@@ -9,20 +9,20 @@ const circle = document.getElementById("circle");
 
 const circumference = 2 * Math.PI * circle.getAttribute("r");
 circle.setAttribute("stroke-dasharray", circumference);
-let currentOffset = 0;
+let duration;
 
 const timer = new Timer(durationInput, startButton, pauseButton, {
-        onStart() {
-            console.log("Timer started");
+        onStart(totalDuration) {
+            duration = totalDuration;
         }, 
-        onTick() {
-            circle.setAttribute("stroke-dashoffset", currentOffset);
-            currentOffset -= 2; 
+        onTick(timeRemaining) {
+            circle.setAttribute("stroke-dashoffset", 
+                circumference * timeRemaining / duration - circumference
+            );
         }, 
         onComplete() {
             console.log("Timer is completed");
         }
     }
 );  
-
  
