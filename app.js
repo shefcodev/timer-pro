@@ -7,8 +7,8 @@ const startButton = document.getElementById("start");
 const pauseButton = document.getElementById("pause");
 const circle = document.getElementById("circle");
 
-const perimeter = 2 * Math.PI * circle.getAttribute("r");
-circle.setAttribute("stroke-dasharray", perimeter);
+const circumference = 2 * Math.PI * circle.getAttribute("r");
+circle.setAttribute("stroke-dasharray", circumference);
 let currentOffset = 0;
 
 const timer = new Timer(durationInput, startButton, pauseButton, {
@@ -17,7 +17,7 @@ const timer = new Timer(durationInput, startButton, pauseButton, {
         }, 
         onTick() {
             circle.setAttribute("stroke-dashoffset", currentOffset);
-            currentOffset -= 50; 
+            currentOffset -= 2; 
         }, 
         onComplete() {
             console.log("Timer is completed");
