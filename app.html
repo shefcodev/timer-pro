@@ -7,24 +7,32 @@
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0" />
         <meta name = "keywords" content = "Timer App" />
         <meta name = "author" content = "Sherif Jimoh" />
-        <link rel = "stylesheet" type = "text/css" href = "style.css">
+        <link rel = "stylesheet" type = "text/css" href = "style.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     </head>
     <body>
-        <svg height = "400" width = "400">
-            <circle 
-                id = "circle"
-                r = "190" 
-                cx = "200" 
-                cy = "200" 
-                fill = "transparent"
-                stroke = "blue"
-                stroke-width = "15"
-                transform = "rotate(-90 200 200)"
-            />
-        </svg>
-        <input type = "text" id = "duration" value = "30" />
-        <button id = "start">Start</button> 
-        <button id = "pause">Pause</button>
+        <div class = "timer">
+            <div class = "controls">
+                <input type="text" id="duration" value="30" />
+                <div>
+                    <button id="start"><i class="fa-solid fa-play"></i></button>
+                    <button id="pause"><i class="fa-solid fa-pause"></i></button>
+                </div>
+            </div>
+            <svg class = "dial" height="400" width="400">
+                <circle 
+                    id="circle" 
+                    r="190" 
+                    cx="200" 
+                    cy="200" 
+                    fill="transparent" 
+                    stroke="grey" 
+                    stroke-width="15"
+                    transform="rotate(-90 200 200)" 
+                />
+            </svg>
+
+        </div>
         <script type = "text/javascript" cherset = "UTF-8" src = "timer.js"></script>
         <script type = "text/javascript" cherset = "UTF-8" src = "app.js"></script>
     </body>
