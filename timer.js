@@ -1,53 +1,53 @@
 "use strict";
 
 class Timer {
-    constructor(durationInput, startButton, pauseButton, callbacks) {
-        this.durationInput = durationInput;
-        this.startButton = startButton;
-        this.pauseButton = pauseButton;
-        if (callbacks) {
-            this.onStart = callbacks.onStart;
-            this.onTick = callbacks.onTick;
-            this.onComplete = callbacks.onComplete;
-        }
+   constructor(durationInput, startButton, pauseButton, callbacks) {
+      this.durationInput = durationInput;
+      this.startButton = startButton;
+      this.pauseButton = pauseButton;
+      if (callbacks) {
+         this.onStart = callbacks.onStart;
+         this.onTick = callbacks.onTick;
+         this.onComplete = callbacks.onComplete;
+      }
 
-        const {durationInput: duraInput, startButton: startBtn, pauseButton: pauseBtn} = this;
-        startBtn.addEventListener("click", this.start);
-        duraInput.addEventListener("change", this.start);
-        pauseBtn.addEventListener("click", this.pause);
-    }
+      const { durationInput: duraInput, startButton: startBtn, pauseButton: pauseBtn } = this;
+      startBtn.addEventListener("click", this.start);
+      duraInput.addEventListener("change", this.start);
+      pauseBtn.addEventListener("click", this.pause);
+   }
 
-    start = () => {
-        if (this.onStart) {
-            this.onStart(this.timeRemaining);
-        }
-        this.tick();
-        this.timerID = setInterval(this.tick, 20);
-    }
+   start = () => {
+      if (this.onStart) {
+         this.onStart(this.timeRemaining);
+      }
+      this.tick();
+      this.timerID = setInterval(this.tick, 20);
+   }
 
-    pause = () => {
-        clearInterval(this.timerID);
-    } 
+   pause = () => {
+      clearInterval(this.timerID);
+   }
 
-    tick = () => {
-        if (this.timeRemaining <= 0) {
-            this.pause();
-            if (this.onComplete) {
-                this.onComplete();
-            }
-        } else {
-            this.timeRemaining = this.timeRemaining - 0.02;
-            if (this.onTick) {
-                this.onTick(this.timeRemaining);
-            }
-        }
-    }
+   tick = () => {
+      if (this.timeRemaining <= 0) {
+         this.pause();
+         if (this.onComplete) {
+            this.onComplete();
+         }
+      } else {
+         this.timeRemaining = this.timeRemaining - 0.02;
+         if (this.onTick) {
+            this.onTick(this.timeRemaining);
+         }
+      }
+   }
 
-    get timeRemaining() {
-        return parseFloat(this.durationInput.value);
-    }
+   get timeRemaining() {
+      return parseFloat(this.durationInput.value);
+   }
 
-    set timeRemaining(time) {
-        this.durationInput.value = time.toFixed(2);
-    }
+   set timeRemaining(time) {
+      this.durationInput.value = time.toFixed(2);
+   }
 }
